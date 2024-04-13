@@ -3,7 +3,6 @@ package com.interview.Interview;
 public class Chpt2TwoSums {
 
     public int[] returnTwoSums(int[] nums, Integer target) {
-        int index = 0;
         int[] arr = new int[]{};
         boolean checkNumsLength = nums.length == 2;
 
@@ -16,15 +15,18 @@ public class Chpt2TwoSums {
         }
 
         for(int i = 0; i < nums.length; i++) {
-            int a = nums[index];
-            int b = nums[i];
+            for(int j = 0; j < nums.length; j++) {
+                int a = nums[j];
+                int b = nums[i];
 
-            if(a == b) {
-                continue;
-            }
+                if(a == b) {
+                    continue;
+                }
 
-            if(a + b == target) {
-                arr =  new int[]{index, i};
+                if(a + b == target) {
+                    return new int[]{i, j};
+                }
+
             }
         }
 
